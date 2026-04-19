@@ -17,7 +17,7 @@ def draw_rectangle(t, x, y, width, height, color, border=None):
         t.forward(height)
         t.left(90)
     t.end_fill()
-    t.pencolor("black") # reset to default
+    t.pencolor("black") 
 
 def draw_triangle(t, x, y, width, height, color):
     t.penup()
@@ -38,7 +38,6 @@ def draw_battlements(t, x, y, width, height, count, color):
         draw_rectangle(t, bx, y, bw, height, color, "black")
 
 def draw_window(t, x, y, width, height):
-    # glowing window with cross frames
     draw_rectangle(t, x, y, width, height, "#FFD700", "black")
     t.penup()
     t.goto(x + width/2, y)
@@ -91,7 +90,7 @@ def draw_tree(t, x, y):
 def main():
     screen = turtle.Screen()
     screen.title("Beautiful GOA Castle")
-    screen.bgcolor("#0B132B")  # Night sky
+    screen.bgcolor("#0B132B")  
     screen.setup(width=900, height=700)
     
     t = turtle.Turtle()
@@ -158,12 +157,12 @@ def main():
     draw_flag(t, 90, 200)
 
     draw_rectangle(t, -50, -200, 100, 390, castle_color, "black")
-    draw_triangle(t, -65, 190, 130, 100, "#6A040F") # Dark red roof
+    draw_triangle(t, -65, 190, 130, 100, "#6A040F")  
     draw_window(t, -15, 60, 30, 45)
     draw_window(t, -15, 125, 30, 45)
     draw_flag(t, 0, 290)
     
-    draw_rectangle(t, -65, -260, 130, 60, "#483C32", "black")  # Wooden bridge
+    draw_rectangle(t, -65, -260, 130, 60, "#483C32", "black") 
     t.pencolor("silver")
     t.pensize(2)
     t.penup(); t.goto(-65, -260); t.pendown(); t.goto(-65, -120)
