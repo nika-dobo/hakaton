@@ -12,6 +12,3 @@ def sum_even_numbers():
     return result
 
 print(sum_even_numbers())
-
-
-jhgjhghj
