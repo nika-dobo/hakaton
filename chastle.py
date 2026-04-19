@@ -69,18 +69,16 @@ def draw_flag(t, x, y):
     t.pencolor("black")
     t.pensize(2)
     t.pendown()
-    t.goto(x, y + 40)  # flag pole
+    t.goto(x, y + 40)
     t.pensize(1)
-    t.fillcolor("#DC143C") # Crimson flag
+    t.fillcolor("#DC143C")
     t.begin_fill()
-    t.goto(x + 30, y + 30) # flag point
+    t.goto(x + 30, y + 30)
     t.goto(x, y + 15)
     t.end_fill()
 
 def draw_tree(t, x, y):
-    # Tree trunk
     draw_rectangle(t, x - 10, y, 20, 40, "#4A2E1B", "black")
-    # Leaves
     t.penup()
     t.goto(x, y + 30)
     t.fillcolor("#1C5D2A")
@@ -100,8 +98,6 @@ def main():
     t.speed(0)
     t.hideturtle()
     
-    # === BACKGROUND ===
-    # Draw Moon
     t.penup()
     t.goto(-350, 220)
     t.color("#FFFACD")
@@ -109,17 +105,14 @@ def main():
     t.circle(45)
     t.end_fill()
     
-    # Draw Stars
     for _ in range(40):
         sx = random.randint(-450, 450)
         sy = random.randint(50, 350)
         ssize = random.randint(3, 8)
         draw_star(t, sx, sy, ssize)
     
-    # Grass Background
     draw_rectangle(t, -450, -350, 900, 150, "#194A22")
     
-    # Moat (Water) with reflection lines
     draw_rectangle(t, -450, -250, 900, 50, "#1C5D99")   
     t.pencolor("#3581D8")
     t.pensize(2)
@@ -130,67 +123,55 @@ def main():
         t.forward(800)
     t.pensize(1)
     
-    # Trees
     draw_tree(t, -350, -200)
     draw_tree(t, -400, -180)
     draw_tree(t, 350, -170)
     draw_tree(t, 410, -200)
     
-    # === CASTLE STRUCTURE ===
     castle_color = "#6E6E6E"
     light_gray   = "#848484"
     dark_gray    = "#4C4C4C"
     
-    # Background Main Building 
     draw_rectangle(t, -180, -200, 360, 220, castle_color, "black")
     draw_battlements(t, -180, 20, 360, 25, 8, castle_color)
     
-    # Left Outer Tower
     draw_rectangle(t, -260, -200, 70, 270, light_gray, "black")
     draw_battlements(t, -270, 70, 90, 20, 4, light_gray)
     draw_window(t, -235, -50, 20, 40)
     draw_window(t, -235, 15, 20, 40)
     draw_flag(t, -225, 90)
     
-    # Right Outer Tower
     draw_rectangle(t, 190, -200, 70, 270, light_gray, "black")
     draw_battlements(t, 180, 70, 90, 20, 4, light_gray)
     draw_window(t, 215, -50, 20, 40)
     draw_window(t, 215, 15, 20, 40)
     draw_flag(t, 225, 90)
 
-    # Left Inner Tower
     draw_rectangle(t, -120, -200, 60, 320, dark_gray, "black")
     draw_triangle(t, -135, 120, 90, 80, "#4A0000")
     draw_window(t, -100, 35, 20, 40)
     draw_flag(t, -90, 200)
 
-    # Right Inner Tower
     draw_rectangle(t, 60, -200, 60, 320, dark_gray, "black")
     draw_triangle(t, 45, 120, 90, 80, "#4A0000")
     draw_window(t, 80, 35, 20, 40)
     draw_flag(t, 90, 200)
 
-    # Central Grand Tower
     draw_rectangle(t, -50, -200, 100, 390, castle_color, "black")
     draw_triangle(t, -65, 190, 130, 100, "#6A040F") # Dark red roof
     draw_window(t, -15, 60, 30, 45)
     draw_window(t, -15, 125, 30, 45)
     draw_flag(t, 0, 290)
     
-    # === DETAILS ===
-    # Draw Bridge over Moat
     draw_rectangle(t, -65, -260, 130, 60, "#483C32", "black")  # Wooden bridge
-    # Bridge chains/ropes
     t.pencolor("silver")
     t.pensize(2)
     t.penup(); t.goto(-65, -260); t.pendown(); t.goto(-65, -120)
     t.penup(); t.goto(65, -260); t.pendown(); t.goto(65, -120)
     t.pensize(1)
     
-    # Main Door
     draw_rectangle(t, -40, -200, 80, 90, "#1F1209", "black")
-    # Door arch
+
     t.penup()
     t.goto(40, -110)
     t.setheading(90)
@@ -202,11 +183,10 @@ def main():
     t.end_fill()
     t.setheading(0)
     
-    # Draw GOA Banner 
     t.penup()
     t.goto(-80, -20)
     t.pendown()
-    t.fillcolor("#FFD700") # Gold banner
+    t.fillcolor("#FFD700") 
     t.pencolor("black")
     t.begin_fill()
     for _ in range(2):
@@ -216,16 +196,14 @@ def main():
         t.left(90)
     t.end_fill()
     
-    # Write GOA Text
     t.penup()
     t.goto(0, -15)
-    t.color("#8B0000") # Dark red text
+    t.color("#8B0000")
     t.write("GOA", align="center", font=("Verdana", 28, "bold"))
     
-    # Big text in sky
     t.goto(0, 280)
     t.color("gold")
-    # Draw subtle shadow for sky text
+
     t.write("GOA KINGDOM", align="center", font=("Courier", 36, "bold"))
 
     turtle.done()
