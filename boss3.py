@@ -19,9 +19,18 @@
 
 def password_strength(password):
     length = len(password)
-    has_lower = any(c.islower() for c in password)
-    has_upper = any(c.isupper() for c in password)
-    has_digit = any(c.isdigit() for c in password)
+    has_lower = False
+    has_upper = False
+    has_digit = False
+    
+    for c in password:
+        if c.islower():
+            has_lower = True
+        elif c.isupper():
+            has_upper = True
+        elif c.isdigit():
+            has_digit = True
+            
     has_letter = has_lower or has_upper
     
     if length >= 8 and has_lower and has_upper and has_digit:
